@@ -11,4 +11,6 @@ public interface UserServicesLocal {
 	User findUserById(String id);
 
 	User login(String email, String password);
+
+	Boolean updateUser(User user);
 }

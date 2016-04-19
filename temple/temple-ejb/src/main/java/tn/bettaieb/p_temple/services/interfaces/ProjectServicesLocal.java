@@ -18,4 +18,8 @@ public interface ProjectServicesLocal {
 	List<Project> findProjectsByUserId(String idUser);
 
 	List<User> findUsersByProjectId(String idProject);
+
+	Boolean updateUsersThatUsedTheProject(String idUser, String idProject);
+	
+	Boolean evaluate(String idProject,String idUser,int evalValue);
 }

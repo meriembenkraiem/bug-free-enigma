@@ -19,4 +19,7 @@ public interface ProjectServicesRemote {
 
 	List<User> findUsersByProjectId(String idProject);
 
+	Boolean updateUsersThatUsedTheProject(String idUser, String idProject);
+
+	Boolean evaluate(String idProject, String idUser, int evalValue);
 }

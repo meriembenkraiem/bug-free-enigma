@@ -85,5 +85,6 @@
     <module>temple-ejb</module>
     <module>temple-web</module>
     <module>temple-ear</module>
+   
   </modules>
 </project>

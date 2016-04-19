@@ -20,7 +20,8 @@ import tn.bettaieb.p_temple.services.interfaces.UserServicesLocal;
  * Session Bean implementation class ProjectServices
  */
 @Stateless
-public class ProjectServices implements ProjectServicesRemote, ProjectServicesLocal {
+public class ProjectServices implements ProjectServicesRemote,
+		ProjectServicesLocal {
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -50,7 +51,8 @@ public class ProjectServices implements ProjectServicesRemote, ProjectServicesLo
 		Boolean b = false;
 		try {
 			Project project = findProjectById(idProject);
-			Student student = (Student) userServicesLocal.findUserById(idStudent);
+			Student student = (Student) userServicesLocal
+					.findUserById(idStudent);
 
 			student.getProjects().add(project);
 			entityManager.merge(student);
@@ -85,6 +87,40 @@ public class ProjectServices implements ProjectServicesRemote, ProjectServicesLo
 		query.setParameter("param", project);
 		users = query.getResultList();
 		return users;
+	}
+
+	@Override
+	public Boolean updateUsersThatUsedTheProject(String idUser, String idProject) {
+		Boolean b = false;
+		try {
+			Project project = findProjectById(idProject);
+			User user = userServicesLocal.findUserById(idUser);
+			user.getProjectsUsedByUsers().add(project);
+			userServicesLocal.updateUser(user);
+
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
+	}
+
+	@Override
+	public Boolean evaluate(String idProject, String idUser, int evalValue) {
+		Boolean b = false;
+		try {
+			Project project = findProjectById(idProject);
+			User user = userServicesLocal.findUserById(idUser);
+			if (project.getUsersThatUserTheProject().contains(user)) {
+				project.setEvalValue(evalValue);
+			} else {
+				System.out.println("not allowed");
+			}
+
+			entityManager.merge(project);
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
 	}
 
 }
