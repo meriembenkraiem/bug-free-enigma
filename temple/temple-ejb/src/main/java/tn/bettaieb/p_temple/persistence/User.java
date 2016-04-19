@@ -19,6 +19,8 @@ public class User implements Serializable {
 	private String id;
 	private String firstName;
 	private String lastName;
+	private String email;
+	private String password;
 	private static final long serialVersionUID = 1L;
 
 	@ManyToMany(cascade = CascadeType.PERSIST)
@@ -28,12 +30,19 @@ public class User implements Serializable {
 		super();
 	}
 
-	public User(String id, String firstName, String lastName) {
+
+
+	public User(String id, String firstName, String lastName, String email,
+			String password) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
 	}
+
+
 
 	public String getId() {
 		return this.id;
@@ -65,6 +74,22 @@ public class User implements Serializable {
 
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

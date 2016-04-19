@@ -17,8 +17,11 @@ public class Student extends User implements Serializable {
 		super();
 	}
 
-	public Student(String id, String firstName, String lastName) {
-		super(id, firstName, lastName);
+	public Student(String id, String firstName, String lastName, String email,
+			String password) {
+		super(id, firstName, lastName, email, password);
 	}
+
+	
 
 }

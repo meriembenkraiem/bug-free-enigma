@@ -9,4 +9,6 @@ public interface UserServicesLocal {
 	Boolean addUser(User user);
 
 	User findUserById(String id);
+
+	User login(String email, String password);
 }
