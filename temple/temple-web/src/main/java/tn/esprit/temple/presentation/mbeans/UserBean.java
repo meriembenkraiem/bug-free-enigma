@@ -2,18 +2,24 @@ package tn.esprit.temple.presentation.mbeans;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
 import tn.bettaieb.p_temple.persistence.Student;
 import tn.bettaieb.p_temple.persistence.User;
 import tn.bettaieb.p_temple.services.interfaces.UserServicesLocal;
 
 @ManagedBean
-@SessionScoped
 public class UserBean {
+	// injection du service
 	@EJB
 	private UserServicesLocal userServicesLocal;
+	// Modele
 	private User user = new User();
+
+	// Methode
+
+	public String doAddUser() {
+		userServicesLocal.addUser(user);
+		return "";
+	}
 
 	public String doLogin() {
 		String navigateTo = "";
