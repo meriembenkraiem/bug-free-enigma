@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<h:body>
+	<h1>add Student</h1>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputText value="id" />
+			<h:inputText value="#{userBean.user.id}" />
+			<h:outputText value="lastname" />
+			<h:inputText value="#{userBean.user.lastName}" />
+
+			<h:commandButton action="#{userBean.doAddUser}" value="add" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

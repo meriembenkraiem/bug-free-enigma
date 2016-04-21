@@ -2,11 +2,14 @@ package tn.esprit.temple.presentation.mbeans;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
 import tn.bettaieb.p_temple.persistence.Student;
 import tn.bettaieb.p_temple.persistence.User;
 import tn.bettaieb.p_temple.services.interfaces.UserServicesLocal;
 
 @ManagedBean
+@RequestScoped
 public class UserBean {
 	// injection du service
 	@EJB
